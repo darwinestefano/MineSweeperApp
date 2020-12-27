@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">MineSweeper</string>
+    <string name="app_name">MINE SWEEPER</string>
+    <string name="save">RESET</string>
+    <string name="uncover">UNCOVER MODE</string>
 </resources>
