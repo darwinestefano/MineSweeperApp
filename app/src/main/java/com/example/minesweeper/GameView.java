@@ -10,7 +10,7 @@ import android.widget.Toast;
 public class GameView {
 
     private static GameView instance;
-    public static final int BOMB_NUMBER = 10;
+    public static final int BOMB_NUMBER = 20;
     public static final int WIDTH = 10;
     public static final int HEIGHT = 10;
 
@@ -62,5 +62,11 @@ public class GameView {
             }
 
         }
+    }
+
+    public void flag( int x , int y ){
+        boolean isFlagged = getCellAt(x,y).isFlagged();
+        getCellAt(x,y).setFlagged(!isFlagged);
+        getCellAt(x,y).invalidate();
     }
 }

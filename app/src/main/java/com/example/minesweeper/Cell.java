@@ -32,6 +32,14 @@ public class Cell extends BaseCell implements View.OnClickListener , View.OnLong
         GameView.getInstance().click( getXPos(), getYPos() );
     }
 
+    //On long click display flag position x,y
+    @Override
+    public boolean onLongClick(View v) {
+        GameView.getInstance().flag( getXPos() , getYPos() );
+
+        return true;
+    }
+
     //display all the draw in the canvas (grid)
     @Override
     protected void onDraw(Canvas canvas) {
@@ -121,10 +129,4 @@ public class Cell extends BaseCell implements View.OnClickListener , View.OnLong
         drawable.setBounds(0,0,getWidth(),getHeight());
         drawable.draw(canvas);
     }
-
-    @Override
-    public boolean onLongClick(View v) {
-        return false;
-    }
 }
-
