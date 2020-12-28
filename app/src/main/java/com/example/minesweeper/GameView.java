@@ -15,6 +15,7 @@ public class GameView {
     public static final int HEIGHT = 10;
 
     private Context context;
+    private Cell[][] MinesweeperGrid = new Cell[WIDTH][HEIGHT];
 
     public static GameView getInstance() {
         if( instance == null ){
@@ -35,5 +36,24 @@ public class GameView {
 
     }
 
+    public Cell getCellAt( int x , int y ){
+        return MinesweeperGrid[x][y];
+    }
 
+    public void click( int x , int y ){
+        if( x >= 0 && y >= 0 && x < WIDTH && y < HEIGHT && !getCellAt(x,y).isClicked() ){
+            getCellAt(x,y).setClicked();
+
+            if( getCellAt(x,y).getValue() == 0 ){
+                for( int xt = -1 ; xt <= 1 ; xt++ ){
+                    for( int yt = -1 ; yt <= 1 ; yt++){
+                        if( xt != yt ){
+                            click(x + xt , y + yt);
+                        }
+                    }
+                }
+            }
+
+        }
+    }
 }
