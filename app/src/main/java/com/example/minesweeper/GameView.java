@@ -36,6 +36,13 @@ public class GameView {
 
     }
 
+    public Cell getCellAt(int position) {
+        int x = position % WIDTH;
+        int y = position / WIDTH;
+
+        return MinesweeperGrid[x][y];
+    }
+
     public Cell getCellAt( int x , int y ){
         return MinesweeperGrid[x][y];
     }
